@@ -217,6 +217,10 @@ textarea {
   margin:40px auto;
 }
 
+#load-container{
+  width:100%;
+}
+
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
