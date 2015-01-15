@@ -23,10 +23,10 @@ $(document).ready(function(){
     var filename = ""; // container for image filename
 
     var total_files = 1715;
-    var MAX_COUNT = 30;
+    var MAX_COUNT = 100;
 
     // Set up random interval
-    var start_index = Math.floor( Math.random()*(total_files - MAX_COUNT) );
+    var start_index = 0;
     var end_index = start_index + MAX_COUNT;
 
     // Loop through submissions and add press image 1 to DOM
@@ -58,9 +58,7 @@ $(document).ready(function(){
       $block.append( $title );
       $block.append( $links );
 
-      var html = $block.html();
-
-      $('#data').append( html );
+      $('#data').append( $block );
     }//end for
 
   });//end get
