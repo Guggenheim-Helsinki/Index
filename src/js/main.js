@@ -66,7 +66,9 @@ $(document).ready(function(){
         $('#data').append( $block );
       }//end for
 
-      start_index += MAX_COUNT;
+      start_index += MAX_COUNT; // increment the starting index/counter
+
+      $('#count').text(start_index); // update the count
     });//end get
   }//end function load()
 });
