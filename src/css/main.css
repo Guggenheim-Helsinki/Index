@@ -12,6 +12,7 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+    font-family: Monaco, monospace;
 }
 
 /*
@@ -184,6 +185,27 @@ textarea {
 .clearfix:after {
     clear: both;
 }
+
+
+/*
+ * Style the blocks
+ */
+
+.submission{
+  padding:20px;
+  margin:20px;
+  border:1px solid black;
+  float:left;
+}
+
+.submission h1{
+  font-family: Arial, sans-serif;
+}
+
+.submission ul{
+  list-style: none;
+}
+
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
