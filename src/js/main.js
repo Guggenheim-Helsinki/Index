@@ -4,6 +4,7 @@ $(document).ready(function(){
   var total_files = 1715;
   var MAX_COUNT = 100;
   var start_index = 0;
+  var end_index;
 
   // handle event request for loading more images
   $('#load').click(function(){
@@ -31,8 +32,12 @@ $(document).ready(function(){
       var path = ""; // endpoint plus file path
       var filename = ""; // container for image filename
 
-      // Set up random interval
-      var end_index = start_index + MAX_COUNT;
+      // set end index
+      if( (start_index + MAX_COUNT) > total_files){
+        end_index = total_files;
+      }else{
+        end_index = start_index + MAX_COUNT;
+      }
 
       // Loop through submissions and add press image 1 to DOM
       for(var i = start_index; i < end_index; i++){
@@ -66,9 +71,9 @@ $(document).ready(function(){
         $('#data').append( $block );
       }//end for
 
-      start_index += MAX_COUNT; // increment the starting index/counter
+      start_index = end_index; // increment the starting index/counter
 
-      $('#count').text(start_index); // update the count
+      $('#count').text(end_index); // update the count
     });//end get
   }//end function load()
 });
