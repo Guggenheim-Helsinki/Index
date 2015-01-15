@@ -201,6 +201,7 @@ textarea {
   margin:20px;
   border:1px solid black;
   float:left;
+  text-align:left;
 }
 
 .submission h1{
@@ -209,6 +210,7 @@ textarea {
 
 .submission ul{
   list-style: none;
+  padding-left:0;
 }
 
 #load{
