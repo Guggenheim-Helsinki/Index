@@ -15,6 +15,11 @@ html {
     font-family: Monaco, monospace;
 }
 
+body {
+  text-align:center;
+  margin:20px auto;
+}
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -204,6 +209,10 @@ textarea {
 
 .submission ul{
   list-style: none;
+}
+
+#load{
+  margin:40px auto;
 }
 
 
