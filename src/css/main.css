@@ -197,6 +197,7 @@ textarea {
  */
 
 .submission{
+  width:250px;
   padding:20px;
   margin:20px;
   border:1px solid black;
@@ -219,6 +220,7 @@ textarea {
 
 #load-container{
   width:100%;
+  float:left;
 }
 
 
