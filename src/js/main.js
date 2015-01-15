@@ -14,14 +14,12 @@ $(document).ready(function(){
   // Get the directory and then use it to get the files
   $.get( url, function(data){
     // Prepare the submissions array
-    var data_obj = $.parseJSON(data); // parse JSON response into javascript array
+    var data_obj = $.parseJSON(data); // parse JSON response into javascript object
 
-    console.dir(data_obj.submissions);
-
-    var submissions = data_obj.submissions;
+    var submissions = data_obj.submissions; // pluck out submissions into an array
 
     // Cycle through the first MAX_COUNT submissions and add to the DOM
-    var src = ""; // container for image source
+    var path = ""; // endpoint plus file path
     var filename = ""; // container for image filename
 
     var total_files = 1715;
@@ -39,12 +37,28 @@ $(document).ready(function(){
       filename = submissions[i].data.images.press_image_1; // construct the filename
 
       // construct the image src URL
-      src = endpoint + "/" + version + "/" + data_dir + "/" + id + "/" + filename;
+      path = endpoint + "/" + version + "/" + data_dir + "/" + id + "/";
 
       // add to the DOM
-      var caption = '<caption>' + id + '</caption>';
-      var img = '<img src="' + src + '" />';
-      var html = '<div class="item">' + img + caption + '</div>';
+      var $block = $('<div class="submission"></div>');
+      var $title = $('<h1>' + id + '</id>');
+      var $links = $('<ul class="links"></ul>');
+
+      var $description = $('<li><a href="' + path + submissions[i].data.pdfs.description + '">' + 'Text description (pdf)' + '</li>');
+      var $summary = $('<li><a href="' + path + submissions[i].data.pdfs.summary + '">' + 'Text summary (pdf)' + '</li>');
+      var $boards = $('<li><a href="' + path + submissions[i].data.pdfs.boards + '">' + 'Boards (pdf)' + '</li>');
+
+      var $press_images = $('<li>' + 'Press images ' + '<a href="' + path + submissions[i].data.images.press_image_1 + '">' + '1</a>' + ' <a href="' + path + submissions[i].data.images.press_image_2 + '">' + '2' + '</li>');
+
+      $links.append( $description );
+      $links.append( $summary );
+      $links.append( $boards );
+      $links.append( $press_images );
+
+      $block.append( $title );
+      $block.append( $links );
+
+      var html = $block.html();
 
       $('#data').append( html );
     }//end for
